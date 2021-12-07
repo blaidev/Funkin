@@ -1372,12 +1372,15 @@ class PlayState extends MusicBeatState
 			persistentDraw = true;
 			paused = true;
 
-			// 1 / 1000 chance for Gitaroo Man easter egg
-			if (FlxG.random.bool(0.1))
+			// uhmmmm
+			if (FlxG.random.bool(0.4))
 			{
-				// gitaroo man easter egg
 				FlxG.switchState(new GitarooPause());
-			}
+				
+			// #if desktop
+			// DiscordClient.changePresence("Gitaroo", null, null, true);
+			// #end
+		}
 			else
 				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 		
