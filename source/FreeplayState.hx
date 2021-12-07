@@ -62,10 +62,10 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		if (StoryMenuState.weekUnlocked[2] || isDebug)
-			addWeek(['Bopeebo', 'Fresh', 'Dadbattle'], 1, ['dad']);
+			addWeek(['Bopeebo', 'Fresh', 'Dadbattle'], 1, ['dad', 'dad', 'dad']);
 
 		if (StoryMenuState.weekUnlocked[2] || isDebug)
-			addWeek(['Spookeez', 'South', 'Monster'], 2, ['spooky']);
+			addWeek(['Spookeez', 'South', 'Monster'], 2, ['spooky', 'spooky', 'spooky']);
 
 		if (StoryMenuState.weekUnlocked[3] || isDebug)
 			addWeek(['Pico', 'Philly', 'Blammed'], 3, ['pico']);
@@ -164,7 +164,7 @@ class FreeplayState extends MusicBeatState
 	public function addWeek(songs:Array<String>, weekNum:Int, ?songCharacters:Array<String>)
 	{
 		if (songCharacters == null)
-			songCharacters = ['bf'];
+			songCharacters = ['bf', 'dad'];
 
 		var num:Int = 0;
 		for (song in songs)
@@ -252,13 +252,15 @@ class FreeplayState extends MusicBeatState
 				diffText.text = 'NORMAL';
 			case 2:
 				diffText.text = "HARD";
+			case 3:
+				diffText.text = "EXTREME";
 		}
 	}
 
 	function changeSelection(change:Int = 0)
 	{
 		#if !switch
-		NGio.logEvent('Fresh');
+	//	NGio.logEvent('Fresh');
 		#end
 
 		// NGio.logEvent('Fresh');
